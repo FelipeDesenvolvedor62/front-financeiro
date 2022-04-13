@@ -7,9 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriaListaComponent implements OnInit {
 
-  alerta(texto : string){
-    alert(texto)
-  }
   constructor() { }
 
   ngOnInit(): void {
