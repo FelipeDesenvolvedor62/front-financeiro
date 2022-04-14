@@ -57,7 +57,7 @@ export class CategoriaService {
   // PRIVATE METHODS
   private jsonDataToCategorias(jsonData: any[]): Categoria[] {
     const categorias: Categoria[] = [];
-    jsonData.forEach(_ => categorias.push(_ as Categoria))
+    jsonData.forEach(items => categorias.push(items as Categoria))
     return categorias;
   }
 
@@ -67,6 +67,6 @@ export class CategoriaService {
 
   private handleError(error: any): Observable<any> {
     console.log('Erro na requisição => ', error);
-    return throwError(() => new Error('error'))
+    return throwError(() => new Error(error))
   }
 }

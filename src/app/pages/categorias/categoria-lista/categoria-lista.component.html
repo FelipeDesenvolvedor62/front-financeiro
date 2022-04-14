@@ -1,56 +1,36 @@
 <nav aria-label="breadcrumb" class="mb-5" style="background-color: rgb(198, 198, 198);">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-        <li class="breadcrumb-item active">Categorias</li>
-    </ol>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active">Categorias</li>
+  </ol>
 </nav>
 
 <div class="row mb-4">
-    <div class="col-md">
-        <h1 class="h2">Categórias</h1>
-    </div>
-    <div class="col-md">
-        <div class="btn btn-success float-end">+ Categória</div>
-    </div>
+  <div class="col-md">
+    <h1 class="h2">Categórias</h1>
+  </div>
+  <div class="col-md">
+    <div class="btn btn-success float-end">+ Categória</div>
+  </div>
 </div>
 
 <table class="table table-hover">
-    <thead>
-        <tr class="bg-primary text-light">
-            <th>Categorías</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <strong>Lazer</strong><br>
-                <small>Cinema, Parque, Praia</small>
-            </td>
-            <td>
-                <a [routerLink]="[12, 'edit']" class="btn btn-outline-info btn-sm">Editar</a>
-                <button class="btn btn-outline-danger btn-sm">Excluir</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Lazer</strong><br>
-                <small>Cinema, Parque, Praia</small>
-            </td>
-            <td>
-                <a [routerLink]="[12, 'edit']" class="btn btn-outline-info btn-sm">Editar</a>
-                <button class="btn btn-outline-danger btn-sm">Excluir</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Lazer</strong><br>
-                <small>Cinema, Parque, Praia</small>
-            </td>
-            <td>
-                <a [routerLink]="[12, 'edit']" class="btn btn-outline-info btn-sm">Editar</a>
-                <button class="btn btn-outline-danger btn-sm">Excluir</button>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr class="bg-primary text-light">
+      <th>Categorías</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of categorias">
+      <td>
+        <strong>{{item.nome}}</strong><br>
+        <small>{{ item.descricao }}</small>
+      </td>
+      <td>
+        <a [routerLink]="[12, 'edit']" class="btn btn-outline-info btn-sm">Editar</a>
+        <button class="btn btn-outline-danger btn-sm" (click)="delete(item)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
 </table>

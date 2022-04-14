@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from '../shared/categoria.model';
+import { CategoriaService } from '../shared/categoria.service';
 
 @Component({
   selector: 'app-categoria-lista',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriaListaComponent implements OnInit {
 
-  constructor() { }
+  categorias: Categoria[] = [];
+  reqResp = (items: any) => this.categorias = items;
+
+  reqErro = (erro: any) => alert(erro)
+  constructor(private categoriaService: CategoriaService) { }
 
   ngOnInit(): void {
+    this.categoriaService.getAll().subscribe(this.reqResp, this.reqErro)
   }
 
+  delete(categoria: Categoria) {
+    this.categoriaService.delete(categoria.id).subscribe(
+      () => this.categorias = this.categorias.filter((item: Categoria) => categoria != item),
+      this.reqErro
+    )
+  }
 }
