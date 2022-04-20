@@ -16,13 +16,39 @@ import { switchMap } from 'rxjs';
 })
 export class CategoriaFormComponent implements OnInit, AfterContentChecked {
 
-  constructor() { }
+  currentAction: string = '';
+  categoriaForm: FormGroup | undefined;
+  pageTitle: string = '';
+  serverErrorMensagens: string[] = [];
+  submittingForm: boolean = false;
+  categoria: Categoria = new Categoria();
+
+  constructor(
+    private categoriaService: CategoriaService,
+    private  route: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder
+    ) { }
 
   ngAfterContentChecked(){
 
   }
 
   ngOnInit(): void {
+    this.setCurrentAction();
+    this.buildCategoriaForm();
+    this.loadCategoria();
   }
 
+  setCurrentAction(){
+
+  }
+
+  buildCategoriaForm(){
+
+  }
+
+  loadCategoria(){
+
+  }
 }
