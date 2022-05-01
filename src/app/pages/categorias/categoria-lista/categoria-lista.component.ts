@@ -20,7 +20,7 @@ export class CategoriaListaComponent implements OnInit {
   }
 
   delete(categoria: Categoria) {
-    this.categoriaService.delete(categoria.id).subscribe(
+    this.categoriaService.delete(categoria.id || 0).subscribe(
       () => this.categorias = this.categorias.filter((item: Categoria) => categoria != item),
       this.reqErro
     )

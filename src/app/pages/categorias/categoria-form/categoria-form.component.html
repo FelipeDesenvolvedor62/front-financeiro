@@ -8,7 +8,7 @@
 
 <div class="row mb-4">
   <div class="col-md">
-    <h1 class="h2">Formulário de categorias</h1>
+    <h1 class="h2">Formulário de categorias {{currentAction}}</h1>
   </div>
   <div class="col-md">
     <div class="btn btn-success float-end" routerLink="/categorias">
@@ -16,7 +16,8 @@
     </div>
   </div>
 
-  <form>
+  <form [formGroup | null]="[categoriaForm]">
+
     <div class="card">
       <div class="card-header">
         Informações sobre a categoria

@@ -20,7 +20,7 @@ export class CategoriaService {
     );
   }
 
-  getId(id: number): Observable<Categoria> {
+  getById(id: number): Observable<Categoria> {
     const url = `${this.apiPath}/${id}`;
 
     return this.http.get(url).pipe(
